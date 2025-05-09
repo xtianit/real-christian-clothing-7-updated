@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sunday School App</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        />
+        <link rel="stylesheet" href="sunday.css" />
+    </head>
+    <body>
+        <!-- Loading Screen -->
+        <!-- <div class="loader-container" id="loader">
+            <div class="loader"></div>
+            <p class="loader-text">LOADING SUNDAY SCHOOL</p>
+            <div
+                id="loadingProgress"
+                style="
+                    width: 200px;
+                    height: 4px;
+                    background-color: var(--card-bg);
+                    border-radius: 2px;
+                    margin-top: 20px;
+                    overflow: hidden;
+                "
+            >
+                <div
+                    id="progressBar"
+                    style="
+                        height: 100%;
+                        width: 0;
+                        background-color: var(--accent);
+                        transition: width 1.8s ease-in-out;
+                    "
+                ></div>
+            </div>
+        </div> -->
+        <!-- Replace the existing loader div with this -->
+        <div class="loader-container" id="loader">
+            <div class="logo-wrapper">
+                <div class="logo-loader">
+                    <img
+                        src="./logo.png"
+                        alt="Sunday School Logo"
+                        class="rotating-logo"
+                    />
+                </div>
+                <div class="loader-rings"></div>
+            </div>
+            <p class="loader-text">SUNDAY SCHOOL</p>
+            <p class="loader-subtext">Loading your lesson...</p>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+        <div class="container" id="content">
+            <header>
+                <div class="title">
+                    <i class="fas fa-book-open"></i>
+                    SUNDAY SCHOOL
+                </div>
+                <div class="controls">
+                    <button
+                        class="share-button"
+                        id="shareBtn"
+                        aria-label="Share lesson"
+                        style="
+                            background: none;
+                            border: none;
+                            color: var(--text);
+                            font-size: 1.2rem;
+                            cursor: pointer;
+                        "
+                    >
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                    <button
+                        class="print-button"
+                        id="printBtn"
+                        aria-label="Print lesson"
+                        style="
+                            background: none;
+                            border: none;
+                            color: var(--text);
+                            font-size: 1.2rem;
+                            cursor: pointer;
+                        "
+                    >
+                        <i class="fas fa-print"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="accessibility-controls">
+                <div class="font-size-control">
+                    <button
+                        class="font-btn"
+                        id="decreaseFont"
+                        aria-label="Decrease font size"
+                    >
+                        A-
+                    </button>
+                    <button
+                        class="font-btn"
+                        id="increaseFont"
+                        aria-label="Increase font size"
+                    >
+                        A+
+                    </button>
+                </div>
+                <button id="highContrast">
+                    <i class="fas fa-adjust"></i>
+                    High Contrast
+                </button>
+            </div>
+
+            <div class="lesson-header">
+                <div class="topic">THE REAL CHRISTIAN CLOTHINGS PART 7</div>
+                <div class="memory-verse">
+                    "But if ye forgive not men their trespasses, neither will
+                    your Father forgive your trespasses"
+                    <span class="scripture-ref">- Matt. 6:15</span>
+                </div>
+                <div>Text: <span class="scripture-ref">Col. 3:12-14</span></div>
+            </div>
+
+            <div class="tabs" role="tablist">
+                <button
+                    class="tab active"
+                    data-tab="introduction"
+                    role="tab"
+                    aria-selected="true"
+                >
+                    Introduction
+                </button>
+                <button
+                    class="tab"
+                    data-tab="lesson"
+                    role="tab"
+                    aria-selected="false"
+                >
+                    Lesson
+                </button>
+                <button
+                    class="tab"
+                    data-tab="application"
+                    role="tab"
+                    aria-selected="false"
+                >
+                    Application
+                </button>
+                <button
+                    class="tab"
+                    data-tab="quiz"
+                    role="tab"
+                    aria-selected="false"
+                >
+                    Quiz
+                </button>
+                <button
+                    class="tab"
+                    data-tab="prayer"
+                    role="tab"
+                    aria-selected="false"
+                >
+                    Prayer Points
+                </button>
+            </div>
+
+            <div id="introduction" class="tab-content active" role="tabpanel">
+                <div class="section">
+                    <p>
+                        As the faces differ, so are the minds and the thought of
+                        men. Variance in thought produces results that may be
+                        offensive to one another. The knowledge of this brings
+                        in forbearance which in itself is incomplete without
+                        forgiveness. Many err in this area of forgiveness as
+                        they find it difficult to do. It is a command and one is
+                        a true disciple only when he obeys.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">
+                        <i class="fas fa-bullseye"></i>
+                        AIMS AND OBJECTIVES
+                    </div>
+                    <p>
+                        <strong>AIMS:</strong> To draw the attention of
+                        Christian to the need for change in character.
+                    </p>
+                    <p>
+                        <strong>OBJECTIVES:</strong> That the child of God may
+                        be known by deeds and not by words.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">
+                        <i class="fas fa-book"></i>
+                        Related Scriptures
+                    </div>
+                    <button
+                        class="scripture-button"
+                        data-ref="colossians-3-12-14"
+                    >
+                        <i class="fas fa-scroll"></i>
+                        Colossians 3:12-14
+                    </button>
+                    <button class="scripture-button" data-ref="matthew-6-15">
+                        <i class="fas fa-scroll"></i>
+                        Matthew 6:15
+                    </button>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">
+                        <i class="fas fa-headphones"></i>
+                        Lesson Narration
+                    </div>
+                    <div class="audio-player">
+                        <button
+                            class="play-button"
+                            id="playButton"
+                            aria-label="Play narration"
+                        >
+                            <i class="fas fa-play" id="playIcon"></i>
+                        </button>
+                        <div class="audio-progress" id="audioProgress">
+                            <div
+                                class="audio-progress-bar"
+                                id="audioProgressBar"
+                            ></div>
+                        </div>
+                        <span class="audio-time" id="audioTime"
+                            >0:00 / 3:45</span
+                        >
+                    </div>
+                </div>
+
+                <div class="notes-container">
+                    <h3><i class="fas fa-pencil-alt"></i> My Notes</h3>
+                    <textarea
+                        id="introductionNotes"
+                        class="notes-textarea"
+                        placeholder="Write your notes here..."
+                    ></textarea>
+                    <div
+                        style="
+                            display: flex;
+                            justify-content: flex-end;
+                            margin-top: 10px;
+                        "
+                    >
+                        <button
+                            id="saveIntroNotes"
+                            style="
+                                background-color: var(--primary);
+                                color: white;
+                                border: none;
+                                border-radius: 5px;
+                                padding: 5px 10px;
+                                cursor: pointer;
+                                font-size: 0.9rem;
+                            "
+                        >
+                            <i class="fas fa-save"></i> Save Notes
+                        </button>
+                    </div>
+                    <div
+                        id="introNotesSaved"
+                        style="
+                            display: none;
+                            color: var(--success);
+                            margin-top: 5px;
+                            text-align: right;
+                            font-size: 0.9rem;
+                        "
+                    >
+                        <i class="fas fa-check"></i> Notes saved!
+                    </div>
+                </div>
+            </div>
+
+            <div id="lesson" class="tab-content" role="tabpanel">
+                <div class="section">
+                    <div class="section-title">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        TEXT REVIEW
+                    </div>
+                    <p>
+                        God commanded that men should forgive his neighbor of
+                        offenses committed against him. No condition is
+                        attached, whether he pleads or not as it is revealed in
+                        our text in verse 13.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">
+                        <i class="fas fa-heart"></i>
+                        BOWELS OF FORGIVENESS
+                    </div>
+                    <p>
+                        This is the pardon granted to offences. As a child of
+                        God, you receive pardon to stand justified in God's
+                        presence today. In like manner, Christ is asking you to
+                        forgive your offenders. It has to come from inner man,
+                        but if your are not clothed, how can you practice it?
+                        Forgive when the offence is small or great. To some
+                        people, there are some unpardonable offences which is
+                        wrong.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">
+                        <i class="fas fa-list-ul"></i>
+                        FACTS ABOUT FORGIVENESS
+                    </div>
+                    <ol>
+                        <li>It is a matter of choice.</li>
+                        <li>
+                            It is practicable that is why the demand if placed.
+                        </li>
+                        <li>
+                            It is necessary for co-existence -
+                            <button
+                                class="scripture-button"
+                                data-ref="ephesians-4-32"
+                            >
+                                <i class="fas fa-scroll"></i>
+                                Eph. 4:32
+                            </button>
+                            <button
+                                class="scripture-button"
+                                data-ref="2-corinthians-2-7"
+                            >
+                                <i class="fas fa-scroll"></i>
+                                2 Cor. 2:7
+                            </button>
+                        </li>
+                        <li>
+                            It can be worn -
+                            <button
+                                class="scripture-button"
+                                data-ref="colossians-3-13"
+                            >
+                                <i class="fas fa-scroll"></i>
+                                Col. 3:13
+                            </button>
+                        </li>
+                        <li>
+                            It is a condition of answered prayers -
+                            <button
+                                class="scripture-button"
+                                data-ref="matthew-6-12"
+                            >
+                                <i class="fas fa-scroll"></i>
+                                Matt. 6:12
+                            </button>
+                            <button
+                                class="scripture-button"
+                                data-ref="matthew-6-14-15"
+                            >
+                                <i class="fas fa-scroll"></i>
+                                Matt. 6:14-15
+                            </button>
+                        </li>
+                        <li>
+                            If you don't forgive, you shall not be forgiven -
+                            <button
+                                class="scripture-button"
+                                data-ref="matthew-6-15"
+                            >
+                                <i class="fas fa-scroll"></i>
+                                Matt. 6:15
+                            </button>
+                            <button
+                                class="scripture-button"
+                                data-ref="mark-11-25-26"
+                            >
+                                <i class="fas fa-scroll"></i>
+                                Mk. 11:25-26
+                            </button>
+                        </li>
+                        <li>
+                            If you don't, you will be handed over to tormentors
+                            -
+                            <button
+                                class="scripture-button"
+                                data-ref="matthew-18-34"
+                            >
+                                <i class="fas fa-scroll"></i>
+                                Matt. 18:34
+                            </button>
+                        </li>
+                        <li>
+                            Your past forgiven sins shall be revisited -
+                            <button
+                                class="scripture-button"
+                                data-ref="matthew-18-34"
+                            >
+                                <i class="fas fa-scroll"></i>
+                                Matt. 18:34
+                            </button>
+                        </li>
+                        <li>
+                            It has to be from heart and not lips -
+                            <button
+                                class="scripture-button"
+                                data-ref="matthew-18-35"
+                            >
+                                <i class="fas fa-scroll"></i>
+                                Matt. 18:35
+                            </button>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="notes-container">
+                    <h3><i class="fas fa-pencil-alt"></i> Lesson Notes</h3>
+                    <textarea
+                        id="lessonNotes"
+                        class="notes-textarea"
+                        placeholder="Write your lesson notes here..."
+                    ></textarea>
+                    <div
+                        style="
+                            display: flex;
+                            justify-content: flex-end;
+                            margin-top: 10px;
+                        "
+                    >
+                        <button
+                            id="saveLessonNotes"
+                            style="
+                                background-color: var(--primary);
+                                color: white;
+                                border: none;
+                                border-radius: 5px;
+                                padding: 5px 10px;
+                                cursor: pointer;
+                                font-size: 0.9rem;
+                            "
+                        >
+                            <i class="fas fa-save"></i> Save Notes
+                        </button>
+                    </div>
+                    <div
+                        id="lessonNotesSaved"
+                        style="
+                            display: none;
+                            color: var(--success);
+                            margin-top: 5px;
+                            text-align: right;
+                            font-size: 0.9rem;
+                        "
+                    >
+                        <i class="fas fa-check"></i> Notes saved!
+                    </div>
+                </div>
+            </div>
+
+            <div id="application" class="tab-content" role="tabpanel">
+                <div class="section">
+                    <div class="section-title">
+                        <i class="fas fa-lightbulb"></i>
+                        PERSONAL APPLICATION
+                    </div>
+                    <p>
+                        Since you are not an island but created to depend on one
+                        another, you need to accommodate others by forgiving
+                        them for co-existence and to bring God's will to
+                        manifest on planet earth.
+                    </p>
+
+                    <p>Consider the following questions:</p>
+                    <ul>
+                        <li>
+                            How does practicing forgiveness impact your
+                            relationship with God?
+                        </li>
+                        <li>
+                            What practical steps can you take to forgive someone
+                            who has hurt you deeply?
+                        </li>
+                        <li>
+                            How can wearing the "clothing" of forgiveness change
+                            your daily interactions with others?
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">
+                        <i class="fas fa-pen"></i>
+                        PERSONAL REFLECTION
+                    </div>
+                    <p>
+                        Take a moment to reflect on your own journey with
+                        forgiveness. Write your thoughts below:
+                    </p>
+                    <textarea
+                        id="reflectionText"
+                        class="reflection-textarea"
+                        placeholder="Write your personal reflection here..."
+                    ></textarea>
+                    <button id="saveReflection" class="save-reflection">
+                        Save Reflection
+                    </button>
+                    <div id="savedMessage" class="saved-message">
+                        Your reflection has been saved!
+                    </div>
+                </div>
+            </div>
+
+            <div id="quiz" class="tab-content" role="tabpanel">
+                <div class="section">
+                    <div class="section-title">
+                        <i class="fas fa-question-circle"></i>
+                        KNOWLEDGE CHECK
+                    </div>
+                    <div class="quiz-container">
+                        <div class="question">
+                            <div class="question-text">
+                                1. According to the memory verse, what happens
+                                if we don't forgive others?
+                            </div>
+                            <div class="options">
+                                <label class="option">
+                                    <input type="radio" name="q1" value="a" />
+                                    God will still forgive us regardless
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q1" value="b" />
+                                    Our Father will not forgive our trespasses
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q1" value="c" />
+                                    We will be blessed anyway
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q1" value="d" />
+                                    Nothing will happen
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question">
+                            <div class="question-text">
+                                2. Forgiveness is described as:
+                            </div>
+                            <div class="options">
+                                <label class="option">
+                                    <input type="radio" name="q2" value="a" />
+                                    Optional for Christians
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q2" value="b" />
+                                    A command from God
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q2" value="c" />
+                                    Only necessary for big offenses
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q2" value="d" />
+                                    Impossible to practice
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question">
+                            <div class="question-text">
+                                3. According to the lesson, forgiveness must
+                                come from:
+                            </div>
+                            <div class="options">
+                                <label class="option">
+                                    <input type="radio" name="q3" value="a" />
+                                    The lips only
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q3" value="b" />
+                                    External pressure
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q3" value="c" />
+                                    The inner man (heart)
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q3" value="d" />
+                                    Fear of consequences
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question">
+                            <div class="question-text">
+                                4. If you don't forgive others, what will happen
+                                according to Matthew 18:34?
+                            </div>
+                            <div class="options">
+                                <label class="option">
+                                    <input type="radio" name="q4" value="a" />
+                                    You will be blessed anyway
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q4" value="b" />
+                                    Nothing will happen
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q4" value="c" />
+                                    You will be handed over to tormentors
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q4" value="d" />
+                                    You will be rewarded
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question">
+                            <div class="question-text">
+                                5. According to the lesson, forgiveness is:
+                            </div>
+                            <div class="options">
+                                <label class="option">
+                                    <input type="radio" name="q5" value="a" />
+                                    A matter of choice
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q5" value="b" />
+                                    Only necessary sometimes
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q5" value="c" />
+                                    Impossible to practice
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q5" value="d" />
+                                    Not a requirement for Christians
+                                </label>
+                            </div>
+                        </div>
+
+                        <button id="submitQuiz" class="submit-quiz">
+                            Submit Answers
+                        </button>
+                        <div id="quizResult" class="quiz-result"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="prayer" class="tab-content" role="tabpanel">
+                <div class="section">
+                    <div class="section-title">
+                        <i class="fas fa-praying-hands"></i>
+                        PRAYER POINTS
+                    </div>
+                    <ol>
+                        <li>
+                            Father, I thank you for teaching me the importance
+                            of forgiveness in my Christian journey.
+                        </li>
+                        <li>
+                            Lord Jesus, please help me to put on the garment of
+                            forgiveness in my daily life.
+                        </li>
+                        <li>
+                            Holy Spirit, give me the strength to forgive those
+                            who have hurt me deeply.
+                        </li>
+                        <li>
+                            Father, remove any root of bitterness and
+                            unforgiveness from my heart.
+                        </li>
+                        <li>
+                            Lord, help me to forgive from my heart and not just
+                            with my lips.
+                        </li>
+                        <li>
+                            Father, forgive me for the times I have held grudges
+                            against others.
+                        </li>
+                        <li>
+                            Holy Spirit, help me to remember that forgiveness is
+                            a condition for answered prayers.
+                        </li>
+                        <li>
+                            Lord Jesus, help me to follow your example of
+                            forgiveness, even when it seems difficult.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Scripture Modal -->
+            <div class="modal" id="scriptureModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 id="scriptureTitle">Scripture</h3>
+                        <button
+                            class="close-modal"
+                            id="closeModal"
+                            aria-label="Close"
+                        >
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <select id="versionSelector" class="version-selector">
+                            <option value="kjv">
+                                King James Version (KJV)
+                            </option>
+                            <option value="niv">
+                                New International Version (NIV)
+                            </option>
+                            <option value="nlt">
+                                New Living Translation (NLT)
+                            </option>
+                            <option value="esv">
+                                English Standard Version (ESV)
+                            </option>
+                            <option value="amp">Amplified Bible (AMP)</option>
+                        </select>
+                        <div
+                            id="scriptureContent"
+                            class="scripture-content"
+                        ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./sunday.js"></script>
+    </body>
+</html>
